@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-theme="battery">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laptops · Student Laptop Finder</title>
+  <link rel="stylesheet" href="dist/output.css">
+</head>
+<body class="flex min-h-screen flex-col bg-page text-ink antialiased">
+  <div id="site-header"></div>
+  <main class="mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:py-8">
+    <h1 class="text-2xl font-extrabold sm:text-3xl">Laptop catalogue</h1>
+    <form id="filters" class="mt-4 grid gap-3 rounded-xl border border-line bg-surface p-4 sm:grid-cols-2 lg:grid-cols-6" autocomplete="off">
+      <label class="text-xs font-semibold text-muted sm:col-span-2">Search name or brand
+        <input id="search" type="search" placeholder="e.g. Lenovo" class="field text-base">
+      </label>
+      <label class="text-xs font-semibold text-muted">Category
+        <select id="category" class="field text-base">
+          <option value="all">All</option><option value="ultrabook">Ultrabook</option><option value="gaming">Gaming</option>
+          <option value="2-in-1">2-in-1</option><option value="creator">Creator</option><option value="budget">Budget</option>
+        </select>
+      </label>
+      <label class="text-xs font-semibold text-muted">Max price ($)
+        <input id="max-price" type="number" min="0" step="50" placeholder="Any" class="field text-base">
+      </label>
+      <label class="text-xs font-semibold text-muted">Min RAM
+        <select id="min-ram" class="field text-base">
+          <option value="0">Any</option><option value="8">8 GB+</option><option value="16">16 GB+</option><option value="32">32 GB+</option>
+        </select>
+      </label>
+      <label class="text-xs font-semibold text-muted">Sort by
+        <select id="sort" class="field text-base">
+          <option value="default-asc">Default</option>
+          <option value="price-asc">Price: low to high</option><option value="price-desc">Price: high to low</option>
+          <option value="batteryHours-desc">Battery: longest first</option><option value="batteryHours-asc">Battery: shortest first</option>
+          <option value="weightKg-asc">Weight: lightest first</option><option value="weightKg-desc">Weight: heaviest first</option>
+        </select>
+      </label>
+    </form>
+    <div class="mt-4 flex items-center justify-between gap-3">
+      <p id="result-count" class="text-sm text-muted" aria-live="polite"></p>
+      <button id="reset" type="button" class="btn-ghost">Reset filters</button>
+    </div>
+    <div id="grid" class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
+  </main>
+  <div id="site-footer"></div>
+  <script type="module" src="src/js/laptops.js"></script>
+</body>
+</html>
